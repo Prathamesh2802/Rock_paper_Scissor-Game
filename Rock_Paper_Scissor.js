@@ -16,10 +16,7 @@ function scores(playergame,computergame)
 
 async function game()
 {
-    const round_no = document.getElementById("round_no")
-    const win_lose_msg = document.getElementById("win_lose");
-    const playersc= document.getElementById("player_score");
-    const compsc = document.getElementById("computer_score");
+    
     let playerscore=0,compscore=0;
     for(let i=1;i<=5;i++)
     {
@@ -29,7 +26,7 @@ async function game()
         if(score == "It's Win!")
             {
                 console.log(score)
-                round_no.innerHTML = "Round "+i+" :";
+                round_no.innerHTML = "Round "+i+"";
                 win_lose_msg.innerHTML=score;
                 playerscore++;
                 playersc.innerHTML ="Your Score:"+playerscore;
@@ -38,7 +35,7 @@ async function game()
         else if(score == "It's Lose!")
             {
                 console.log(score)
-                round_no.innerHTML = "Round "+i+" :";
+                round_no.innerHTML = "Round "+i+"";
                 win_lose_msg.innerHTML=score;
                 compscore++;
                 compsc.innerHTML="Computer Score:"+compscore;
@@ -46,7 +43,7 @@ async function game()
             }
         else
             {
-                round_no.innerHTML = "Round "+i+" :";
+                round_no.innerHTML = "Round "+i+"";
                 win_lose_msg.innerHTML=score;
                 console.log(score);
             }
@@ -83,27 +80,59 @@ function compchoice()
 
 function finalscore(playerscore,compscore)
 {
-    const finalscores = document.getElementById("final_score");
+    const button2 = document.getElementById("btn2");
     if(playerscore>compscore)
     {
         finalscores.innerHTML = "You Won the Match!!"
         console.log("You won the Match");
+        button2.style.display="block";
+        button2.addEventListener('click',()=>{
+            round_no.innerHTML="";
+            win_lose_msg.innerHTML="";
+            playersc.innerHTML="";
+            compsc.innerHTML="";
+            finalscores.innerHTML="";
+            game();
+        })
     }
     else if(compscore>playerscore)
     {
         finalscores.innerHTML="You Lost the Match";
         console.log("You lost the Match");
+        button2.style.display="block";
+        button2.addEventListener('click',()=>{
+            round_no.innerHTML="";
+            win_lose_msg.innerHTML="";
+            playersc.innerHTML="";
+            compsc.innerHTML="";
+            finalscores.innerHTML="";
+            game();
+        })
     
     }
     else
     {
         finalscores.innerHTML="Match is Tied!!";
         console.log("Match Tie!");
+        button2.style.display="block";
+        button2.addEventListener('click',()=>{
+            round_no.innerHTML="";
+            win_lose_msg.innerHTML="";
+            playersc.innerHTML="";
+            compsc.innerHTML="";
+            finalscores.innerHTML="";
+            game();
+        })
     }
 }
 
 let btn = document.getElementById("startbutton");
 let gamesection = document.getElementById("gamesection")
+const round_no = document.getElementById("round_no")
+const win_lose_msg = document.getElementById("win_lose");
+const playersc= document.getElementById("player_score");
+const compsc = document.getElementById("computer_score");
+const finalscores = document.getElementById("final_score");
 btn.addEventListener('click',() =>{
     gamesection.style.display="block";
     btn.style.display="none";
