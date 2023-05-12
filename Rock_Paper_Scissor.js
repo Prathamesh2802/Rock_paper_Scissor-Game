@@ -93,11 +93,12 @@ function finalscore(playerscore,compscore)
             compsc.innerHTML="";
             finalscores.innerHTML="";
             game();
+            button2.style.display="none";
         })
     }
     else if(compscore>playerscore)
     {
-        finalscores.innerHTML="You Lost the Match";
+        finalscores.innerHTML="You Lost the Match!!";
         console.log("You lost the Match");
         button2.style.display="block";
         button2.addEventListener('click',()=>{
@@ -107,6 +108,7 @@ function finalscore(playerscore,compscore)
             compsc.innerHTML="";
             finalscores.innerHTML="";
             game();
+            button2.style.display="none";
         })
     
     }
@@ -122,6 +124,7 @@ function finalscore(playerscore,compscore)
             compsc.innerHTML="";
             finalscores.innerHTML="";
             game();
+            button2.style.display="none";
         })
     }
 }
