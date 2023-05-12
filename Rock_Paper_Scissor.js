@@ -22,6 +22,58 @@ async function game()
     {
         const playerchoice = await playerch();
         const computerchoice = compchoice();
+        // if(playerchoice == "rock")
+        // {
+        //     playerselected.innerHTML="You Selected: 🪨";
+        // }
+        // else if(playerchoice=="paper")
+        // {
+        //     playerselected.innerHTML="You Selected: 📃";
+        // }
+        // else 
+        // {
+        //     playerselected.innerHTML="You Selected: ✂️";
+        // }
+
+        // if(computerchoice=="rock")
+        // {
+        //     computerselected.innerHTML="Computer Selected: 🪨";
+        // }
+        // else if(computerchoice=="paper")
+        // {
+        //     computerselected.innerHTML="Computer Selected: 📃"
+        // }
+        // else
+        // {
+        //     computerselected.innerHTML="Computer Selected: ✂️"
+        // }
+
+        switch(playerchoice)
+        {
+            case "rock":
+                playerselected.innerHTML="You Selected: 🪨";
+                break;
+            case "paper":
+                playerselected.innerHTML="You Selected: 📃";
+                break;
+            default:
+                playerselected.innerHTML="You Selected: ✂️";
+                break;   
+        }
+        switch(computerchoice)
+        {
+            case "rock":
+                computerselected.innerHTML="Computer Selected: 🪨";
+                break;
+            case "paper":
+                computerselected.innerHTML="Computer Selected: 📃";
+                break;
+            default:
+                computerselected.innerHTML="Computer Selected: ✂️";
+                break;   
+        }
+
+
         const score = scores(playerchoice,computerchoice)
         if(score == "It's Win!")
             {
@@ -85,48 +137,29 @@ function finalscore(playerscore,compscore)
     {
         finalscores.innerHTML = "You Won the Match!!"
         console.log("You won the Match");
-        button2.style.display="block";
-        button2.addEventListener('click',()=>{
-            round_no.innerHTML="";
-            win_lose_msg.innerHTML="";
-            playersc.innerHTML="";
-            compsc.innerHTML="";
-            finalscores.innerHTML="";
-            game();
-            button2.style.display="none";
-        })
     }
     else if(compscore>playerscore)
     {
         finalscores.innerHTML="You Lost the Match!!";
         console.log("You lost the Match");
-        button2.style.display="block";
-        button2.addEventListener('click',()=>{
-            round_no.innerHTML="";
-            win_lose_msg.innerHTML="";
-            playersc.innerHTML="";
-            compsc.innerHTML="";
-            finalscores.innerHTML="";
-            game();
-            button2.style.display="none";
-        })
-    
     }
     else
     {
         finalscores.innerHTML="Match is Tied!!";
         console.log("Match Tie!");
-        button2.style.display="block";
-        button2.addEventListener('click',()=>{
-            round_no.innerHTML="";
-            win_lose_msg.innerHTML="";
-            playersc.innerHTML="";
-            compsc.innerHTML="";
-            finalscores.innerHTML="";
-            game();
-            button2.style.display="none";
-        })
     }
+    button2.style.display="block";
+    button2.addEventListener('click',()=>{
+        round_no.innerHTML="";
+        win_lose_msg.innerHTML="";
+        playersc.innerHTML="";
+        compsc.innerHTML="";
+        finalscores.innerHTML="";
+        computerselected.innerHTML="";
+        playerselected.innerHTML="";
+        game();
+        button2.style.display="none";
+    })
 }
 
 let btn = document.getElementById("startbutton");
@@ -136,6 +169,8 @@ const win_lose_msg = document.getElementById("win_lose");
 const playersc= document.getElementById("player_score");
 const compsc = document.getElementById("computer_score");
 const finalscores = document.getElementById("final_score");
+const playerselected = document.getElementById("playerselected");
+const computerselected = document.getElementById("computerselected");
 btn.addEventListener('click',() =>{
     gamesection.style.display="block";
     btn.style.display="none";

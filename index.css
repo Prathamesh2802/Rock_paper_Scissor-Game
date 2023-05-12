@@ -38,8 +38,9 @@ h1
 
 .flex
 {
+    margin-top: 0.5rem;
     display: flex;
-    height: 150px;
+    height: 120px;
     justify-content: center;
     align-items: center;
     column-gap: 3rem;
@@ -59,7 +60,7 @@ h1
 
 .mainscores
 {
-    padding: 2rem 0;
+    padding: 1em 0;
     background-color: lightgreen;
 }
 
