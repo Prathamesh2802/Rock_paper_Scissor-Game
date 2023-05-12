@@ -1,112 +1,6 @@
-// function game(playergame,computergame)
-// {
-//     let userval = 0,compval = 0;
-//         if(playergame == "rock")
-//         {
-//             if(computergame == "scissor")
-//             {
-//                 console.log("As Rock Beat Scissor, You Won");
-//                 usercount = userval+1;
-//                 console.log("Your Points:"+userval)
-                
-//             }
-//             else if(computergame == "paper")
-//             {
-//                 console.log("As Paper beats Rock, You lost!")
-//                 compcount=compval+1;            
-//                 console.log("Computer Points:"+compval);
-//             }
-//             else
-//             {
-//                 console.log ("Tie!!")
-//             }
-//         }
-//         else if(playergame == "paper")
-//         {
-//             if(computergame == "scissor")
-//             {
-//                 console.log("As scissor beats paper, You Lost!");
-//                 compcount=compval+1;
-//                 console.log("Computer Points:"+compval)
-//             }
-//             else if(computergame == "rock")
-//             {
-//                 console.log("As Paper beats Rock, You Won!");
-//                 usercount = userval+1;
-//                 console.log("Your Points:"+userval)
-//             }
-//             else
-//             {
-//                 console.log ("Tie!!")
-//             }
-//         }
-//         else 
-//         {
-//            if(computergame == "paper")
-//            {
-//             console.log("As Scissor beats Paper, You won!");
-//             usercount = userval+1;
-//             console.log("Your Points:"+userval)
-//            }
-//            else if(computergame == "rock")
-//            {
-//             console.log("As rock beats scissor, You Lost!");
-//             compcount=compval+1;
-//             console.log("Computer Points is:"+compval)
-        
-//            }
-//            else
-//            {
-//             console.log ("Tie!!")
-
-//            }
-
-//         }
-        
-     
-
-// }
-
-// const computerchoice1 = ["rock","paper","scissor"]
-// let computerchoice = computerchoice1[Math.floor(Math.random()*computerchoice1.length)];
-// let count=0;
-// let usercount=0,compcount=0;
-// while(count<5)
-// {
-//     let userchoice = prompt("Enter your choice:").toLowerCase();
-//     if(computerchoice1.includes(userchoice))
-//     {
-//         game(userchoice,computerchoice,count);
-//         count++;
-       
-//     }
-//     else
-//     {
-//     console.log("Invalid Choice");
-//     count=5;
-//     }
-// }
-// if(count==5)
-// {
-//     if(usercount>compcount)
-//     {
-//         console.log("You won!");
-//     }
-//     else if(compcount>usercount)
-//     {
-//         console.log("You Lost!");
-//     }
-//     else
-//     {
-//         console.log("Tie!")
-//     }
-// }
-
-
-
 function scores(playergame,computergame)
 {
-    if(playergame == computergame)
+    if(playergame === computergame)
     {
         return "It's Tie!";
     }
@@ -120,40 +14,63 @@ function scores(playergame,computergame)
     }
 }
 
-function game()
+async function game()
 {
+    const round_no = document.getElementById("round_no")
+    const win_lose_msg = document.getElementById("win_lose");
+    const playersc= document.getElementById("player_score");
+    const compsc = document.getElementById("computer_score");
     let playerscore=0,compscore=0;
-    for(let i=0;i<5;i++)
+    for(let i=1;i<=5;i++)
     {
-        const playerchoice = prompt("\n1.Rock \n2.Paper\n3.Scissor\nEnter your Choice:").toLowerCase()
-        if(!["rock","paper","scissor"].includes(playerchoice))
-            {
-            console.log("Invalid Choice");
-            i--;
-            continue;
-            }
+        const playerchoice = await playerch();
         const computerchoice = compchoice();
         const score = scores(playerchoice,computerchoice)
         if(score == "It's Win!")
             {
                 console.log(score)
+                round_no.innerHTML = "Round "+i+" :";
+                win_lose_msg.innerHTML=score;
                 playerscore++;
+                playersc.innerHTML ="Your Score:"+playerscore;
                 console.log("Your score:"+playerscore)
             }
         else if(score == "It's Lose!")
             {
                 console.log(score)
+                round_no.innerHTML = "Round "+i+" :";
+                win_lose_msg.innerHTML=score;
                 compscore++;
+                compsc.innerHTML="Computer Score:"+compscore;
                 console.log("Computer score:"+compscore)
             }
         else
             {
+                round_no.innerHTML = "Round "+i+" :";
+                win_lose_msg.innerHTML=score;
                 console.log(score);
             }
     }
    finalscore(playerscore,compscore)
 
 }
+
+function playerch() {
+    return new Promise((resolve) => {
+      const rockch = document.getElementById("Rock");
+      rockch.addEventListener("click", () => {
+        resolve("rock");
+      });
+      const paperch = document.getElementById("Paper");
+      paperch.addEventListener("click", () => {
+        resolve("paper");
+      });
+      const scissorch = document.getElementById("Scissor");
+      scissorch.addEventListener("click", () => {
+        resolve("scissor");
+      });
+    });
+  }
 
 function compchoice()
 {
@@ -163,20 +80,33 @@ function compchoice()
 }
 
 
+
 function finalscore(playerscore,compscore)
 {
+    const finalscores = document.getElementById("final_score");
     if(playerscore>compscore)
     {
+        finalscores.innerHTML = "You Won the Match!!"
         console.log("You won the Match");
     }
     else if(compscore>playerscore)
     {
-        console.log("You lost the Match")
+        finalscores.innerHTML="You Lost the Match";
+        console.log("You lost the Match");
+    
     }
     else
     {
-        console.log("Match Tie!")
+        finalscores.innerHTML="Match is Tied!!";
+        console.log("Match Tie!");
     }
 }
 
-game()
+let btn = document.getElementById("startbutton");
+let gamesection = document.getElementById("gamesection")
+btn.addEventListener('click',() =>{
+    gamesection.style.display="block";
+    btn.style.display="none";
+    game();
+});
+

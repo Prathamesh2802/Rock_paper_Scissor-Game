@@ -1,0 +1,66 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1
+{
+    padding: 2rem 0px;
+}
+
+.startbtn
+{
+    padding: 0.5rem 1.5rem;
+    background-color: chartreuse;
+    font-size: 1rem;
+    color: black;
+    border-radius: 15%;
+    display: block;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+}
+
+.startbtn:hover
+{
+    font-weight: bold;
+}
+
+.container
+{
+    width: 80%;
+    margin: 3rem auto;
+    display: none;
+    background-color: lightgreen;
+}
+
+.flex
+{
+    display: flex;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+
+}
+
+.shapes
+{
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.shapes:hover
+{
+    border: 1px dotted black;
+}
+
+.mainscores
+{
+    padding: 1rem 0;
+    background-color: lightgreen;
+
+
+}

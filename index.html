@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="Rock_Paper_Scissor.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Rock Paper and Scissor Game</title>
 </head>
 <body>
+    <h1 style="text-align: center; color: coral;">Welcome to Rock, Paper and Scissor Game</h1>
+    <button type="button" id="startbutton" class="startbtn">Start</button>
+    <div class="container" id="gamesection">
+        <div class="flex">
+            <div class="shapes" id="Rock">🪨</div>
+            <div class="shapes" id="Paper">📃</div>
+            <div class="shapes" id="Scissor">✂️</div>
+        </div>
+        
+        <div class="mainscores">
+            <h3 id="round_no"></h3>
+            <h3 id="win_lose"></h3>
+            <h3 id="player_score"></h3>
+            <h3 id="computer_score"></h3>
+            <h3 id="final_score"></h3>
+        </div>
+    </div>
+    
+    <script src="Rock_Paper_Scissor.js"></script>
     
 </body>
 </html>
