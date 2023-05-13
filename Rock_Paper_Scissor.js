@@ -1,6 +1,6 @@
 function scores(playergame,computergame)
 {
-    if(playergame === computergame)
+    if(playergame == computergame)
     {
         return "It's Tie!";
     }
