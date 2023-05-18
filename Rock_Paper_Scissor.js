@@ -151,6 +151,8 @@ function finalscore(playerscore,compscore)
     button2.style.display="block";
     button2.addEventListener('click',()=>{
         round_no.innerText="";
+        playerscore=0;
+        compscore=0;
         win_lose_msg.innerText="";
         playersc.innerText="";
         compsc.innerText="";
