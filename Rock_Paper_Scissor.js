@@ -24,52 +24,52 @@ async function game()
         const computerchoice = compchoice();
         // if(playerchoice == "rock")
         // {
-        //     playerselected.innerHTML="You Selected: 🪨";
+        //     playerselected.innerText="You Selected: 🪨";
         // }
         // else if(playerchoice=="paper")
         // {
-        //     playerselected.innerHTML="You Selected: 📃";
+        //     playerselected.innerText="You Selected: 📃";
         // }
         // else 
         // {
-        //     playerselected.innerHTML="You Selected: ✂️";
+        //     playerselected.innerText="You Selected: ✂️";
         // }
 
         // if(computerchoice=="rock")
         // {
-        //     computerselected.innerHTML="Computer Selected: 🪨";
+        //     computerselected.innerText="Computer Selected: 🪨";
         // }
         // else if(computerchoice=="paper")
         // {
-        //     computerselected.innerHTML="Computer Selected: 📃"
+        //     computerselected.innerText="Computer Selected: 📃"
         // }
         // else
         // {
-        //     computerselected.innerHTML="Computer Selected: ✂️"
+        //     computerselected.innerText="Computer Selected: ✂️"
         // }
 
         switch(playerchoice)
         {
             case "rock":
-                playerselected.innerHTML="You Selected: 🪨";
+                playerselected.innerText="You Selected: 🪨";
                 break;
             case "paper":
-                playerselected.innerHTML="You Selected: 📃";
+                playerselected.innerText="You Selected: 📃";
                 break;
             default:
-                playerselected.innerHTML="You Selected: ✂️";
+                playerselected.innerText="You Selected: ✂️";
                 break;   
         }
         switch(computerchoice)
         {
             case "rock":
-                computerselected.innerHTML="Computer Selected: 🪨";
+                computerselected.innerText="Computer Selected: 🪨";
                 break;
             case "paper":
-                computerselected.innerHTML="Computer Selected: 📃";
+                computerselected.innerText="Computer Selected: 📃";
                 break;
             default:
-                computerselected.innerHTML="Computer Selected: ✂️";
+                computerselected.innerText="Computer Selected: ✂️";
                 break;   
         }
 
@@ -78,25 +78,25 @@ async function game()
         if(score == "It's Win!")
             {
                 console.log(score)
-                round_no.innerHTML = "Round "+i+"";
-                win_lose_msg.innerHTML=score;
+                round_no.innerText = "Round "+i+"";
+                win_lose_msg.innerText=score;
                 playerscore++;
-                playersc.innerHTML ="Your Score:"+playerscore;
+                playersc.innerText ="Your Score:"+playerscore;
                 console.log("Your score:"+playerscore)
             }
         else if(score == "It's Lose!")
             {
                 console.log(score)
-                round_no.innerHTML = "Round "+i+"";
-                win_lose_msg.innerHTML=score;
+                round_no.innerText = "Round "+i+"";
+                win_lose_msg.innerText=score;
                 compscore++;
-                compsc.innerHTML="Computer Score:"+compscore;
+                compsc.innerText="Computer Score:"+compscore;
                 console.log("Computer score:"+compscore)
             }
         else
             {
-                round_no.innerHTML = "Round "+i+"";
-                win_lose_msg.innerHTML=score;
+                round_no.innerText = "Round "+i+"";
+                win_lose_msg.innerText=score;
                 console.log(score);
             }
     }
@@ -135,28 +135,28 @@ function finalscore(playerscore,compscore)
     const button2 = document.getElementById("btn2");
     if(playerscore>compscore)
     {
-        finalscores.innerHTML = "You Won the Match!!"
+        finalscores.innerText = "You Won the Match!!"
         console.log("You won the Match");
     }
     else if(compscore>playerscore)
     {
-        finalscores.innerHTML="You Lost the Match!!";
+        finalscores.innerText="You Lost the Match!!";
         console.log("You lost the Match");
     }
     else
     {
-        finalscores.innerHTML="Match is Tied!!";
+        finalscores.innerText="Match is Tied!!";
         console.log("Match Tie!");
     }
     button2.style.display="block";
     button2.addEventListener('click',()=>{
-        round_no.innerHTML="";
-        win_lose_msg.innerHTML="";
-        playersc.innerHTML="";
-        compsc.innerHTML="";
-        finalscores.innerHTML="";
-        computerselected.innerHTML="";
-        playerselected.innerHTML="";
+        round_no.innerText="";
+        win_lose_msg.innerText="";
+        playersc.innerText="";
+        compsc.innerText="";
+        finalscores.innerText="";
+        computerselected.innerText="";
+        playerselected.innerText="";
         game();
         button2.style.display="none";
     })
